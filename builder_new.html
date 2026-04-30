@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disability Advocacy Campaign Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F3172;
+      --primary-light: #1B54C0;
+      --accent: #2E6FD9;
+      --accent-pale: #D6E4FA;
+      --accent-faint: #EBF2FD;
+      --success: #10B981;
+      --text: #111827;
+      --text-soft: #374151;
+      --text-muted: #6B7280;
+      --white: #FFFFFF;
+      --bg: #F4F7FC;
+      --border: #C5D5EE;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: var(--accent-faint);
+      border-left: 5px solid var(--accent);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      color: var(--primary);
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+    }
+
+    /* FORM SECTIONS */
+    .form-section {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .step-badge {
+      background: var(--accent);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .progress-bar {
+      background: var(--border);
+      height: 6px;
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: var(--success);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    /* FORM INPUTS */
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-faint);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .input-help {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* CHECKBOXES & RADIOS */
+    .option-group {
+      margin-bottom: 2rem;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .option-item:hover {
+      background: var(--accent-faint);
+      border-color: var(--accent);
+    }
+
+    .option-item input {
+      margin-right: 0.75rem;
+      margin-top: 0.25rem;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent);
+    }
+
+    .option-label {
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .option-label .title {
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .option-label .desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* BUTTONS */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.875rem 1.75rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--border);
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* OUTPUT SECTION */
+    .output-container {
+      display: none;
+    }
+
+    .output-container.active {
+      display: block;
+    }
+
+    .output-section {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .output-header {
+      background: var(--accent-faint);
+      border-bottom: 2px solid var(--border);
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .output-header:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .output-content {
+      padding: 1.5rem;
+      display: none;
+      animation: slideDown 0.3s ease;
+    }
+
+    .output-content.active {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        max-height: 0;
+      }
+      to {
+        opacity: 1;
+        max-height: 1000px;
+      }
+    }
+
+    .output-content h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 18px;
+    }
+
+    .output-text {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+    }
+
+    .copy-btn {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      font-size: 13px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      opacity: 0.9;
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    .restart-btn {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 2rem;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .restart-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .form-section {
+        padding: 1.5rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <h1>🎯 Build Your Campaign</h1>
+    <p>Answer 5 questions. We generate your complete advocacy plan.</p>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 0%;"></div>
+  </div>
+
+  <form id="campaignForm">
+    <!-- STEP 1: ISSUE -->
+    <div class="form-section active" data-step="1">
+      <div class="section-title">
+        <span class="step-badge">1</span>
+        Your Issue
+      </div>
+      <label>What are you advocating for? (Select all that apply)</label>
+      <div class="option-group" id="issues-group"></div>
+      <label style="margin-top: 1.5rem;">Describe your issue</label>
+      <textarea id="issueDesc" placeholder="Be as specific as possible. What's the problem?"></textarea>
+      <div class="button-group">
+        <button type="button" class="btn-primary" onclick="nextStep(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: WHO ARE YOU -->
+    <div class="form-section" data-step="2">
+      <div class="section-title">
+        <span class="step-badge">2</span>
+        About You
+      </div>
+      <label>Which best describes you?</label>
+      <div class="option-group" id="advocate-group"></div>
+      <div class="button-group">
+        <button type="button" class="btn-secondary" onclick="previousStep(1)">← Back</button>
+        <button type="button" class="btn-primary" onclick="nextStep(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: YOUR STORY -->
+    <div class="form-section" data-step="3">
+      <div class="section-title">
+        <span class="step-badge">3</span>
+        Your Story
+      </div>
+      <label>Your first name</label>
+      <input type="text" id="firstName" placeholder="e.g., Sarah">
+      <label>City and zip code</label>
+      <input type="text" id="location" placeholder="e.g., Birmingham, AL 35203">
+      <div class="input-help">This helps show you're from the local community.</div>
+      <label>Your story (2–3 sentences is enough)</label>
+      <textarea id="story" placeholder="Tell us about your situation and why it matters to you."></textarea>
+      <label>What specific action do you want?</label>
+      <textarea id="ask" placeholder="What should your target do? Be clear and specific."></textarea>
+      <div class="button-group">
+        <button type="button" class="btn-secondary" onclick="previousStep(2)">← Back</button>
+        <button type="button" class="btn-primary" onclick="nextStep(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: TOOLS -->
+    <div class="form-section" data-step="4">
+      <div class="section-title">
+        <span class="step-badge">4</span>
+        Your Campaign Tools
+      </div>
+      <label>Which tools do you want? (Select all you need)</label>
+      <div class="option-group" id="tools-group"></div>
+      <label style="margin-top: 1.5rem;">Which platforms do you use? (Optional)</label>
+      <div class="option-group" id="platforms-group"></div>
+      <div class="button-group">
+        <button type="button" class="btn-secondary" onclick="previousStep(3)">← Back</button>
+        <button type="button" class="btn-primary" onclick="nextStep(5)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: TARGET -->
+    <div class="form-section" data-step="5">
+      <div class="section-title">
+        <span class="step-badge">5</span>
+        Your Target Audience
+      </div>
+      <label>Who are you directing your campaign toward?</label>
+      <div class="option-group" id="target-group"></div>
+      <div class="button-group">
+        <button type="button" class="btn-secondary" onclick="previousStep(4)">← Back</button>
+        <button type="button" class="btn-primary" onclick="generatePlan()">Build My Campaign Plan →</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- OUTPUT -->
+  <div class="output-container" id="output"></div>
+</div>
+
+<script>
+const ISSUES = [
+  { id: 'disability-rights', label: '🛡️ Disability Rights & Accessibility' },
+  { id: 'special-ed', label: '📚 Special Education / IEP Rights' },
+  { id: 'medicaid', label: '🏥 Medicaid & Healthcare Access' },
+  { id: 'transition', label: '🎓 Transition Services (Ages 14–22)' },
+  { id: 'employment', label: '💼 Employment for People with Disabilities' },
+  { id: 'voting', label: '🗳️ Voting Rights for People with Disabilities' },
+  { id: 'mental-health', label: '💙 Mental Health Services' },
+  { id: 'housing', label: '🏘️ Housing Accessibility' },
+  { id: 'other', label: '✏️ Other' }
+];
+
+const ADVOCATES = [
+  { id: 'self', label: 'I am a person with a disability advocating for myself' },
+  { id: 'family', label: 'I am a family member or caregiver' },
+  { id: 'professional', label: 'I am a service provider, educator, or professional' },
+  { id: 'ally', label: 'I am a community ally or volunteer advocate' },
+  { id: 'organization', label: 'I represent an organization or coalition' }
+];
+
+const TOOLS = [
+  { id: 'pitch', label: '🎤 Elevator Pitch', desc: 'A 30-second summary of your issue' },
+  { id: 'letter', label: '📝 Letter / Testimony', desc: 'A formal letter or testimony' },
+  { id: 'email', label: '📧 Email', desc: 'Quick email template' },
+  { id: 'phone', label: '📞 Phone Call Script', desc: 'What to say when you call' },
+  { id: 'op-ed', label: '📰 Op-Ed / Opinion Piece', desc: 'A draft for local media' },
+  { id: 'social', label: '📱 Social Media Posts', desc: 'Posts with hashtags' }
+];
+
+const PLATFORMS = [
+  { id: 'facebook', label: '👥 Facebook' },
+  { id: 'instagram', label: '📸 Instagram' },
+  { id: 'x', label: '𝕏 X / Twitter' },
+  { id: 'tiktok', label: '🎵 TikTok' }
+];
+
+const TARGETS = [
+  { id: 'local-school', label: '🏫 A local school, principal, or school board' },
+  { id: 'district', label: '📋 A school district or superintendent' },
+  { id: 'college', label: '🎓 A college or university administration' },
+  { id: 'agency', label: '🏢 A state or local government agency' },
+  { id: 'nonprofit', label: '🤝 A nonprofit or service organization' },
+  { id: 'employer', label: '💼 An employer or business' },
+  { id: 'medicaid', label: '🏥 Alabama Medicaid Agency or health provider' },
+  { id: 'senator', label: '👔 Alabama State Senator' },
+  { id: 'representative', label: '👔 Alabama State Representative' },
+  { id: 'congress', label: '🏛️ U.S. Congress (Senator or Representative)' }
+];
+
+// Render form sections
+function renderOptions(selector, options, type = 'checkbox') {
+  const container = document.getElementById(selector);
+  container.innerHTML = options.map(opt => `
+    <label class="option-item">
+      <input type="${type}" name="${selector}" value="${opt.id}" ${type === 'radio' ? 'data-label=' + opt.label : ''}>
+      <span class="option-label">
+        <span class="title">${opt.label}</span>
+        ${opt.desc ? `<span class="desc">${opt.desc}</span>` : ''}
+      </span>
+    </label>
+  `).join('');
+}
+
+renderOptions('issues-group', ISSUES, 'checkbox');
+renderOptions('advocate-group', ADVOCATES, 'radio');
+renderOptions('tools-group', TOOLS, 'checkbox');
+renderOptions('platforms-group', PLATFORMS, 'checkbox');
+renderOptions('target-group', TARGETS, 'radio');
+
+// Navigation
+function nextStep(step) {
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  document.querySelector(`[data-step="${step}"]`).classList.add('active');
+  updateProgress(step);
+  window.scrollTo(0, 0);
+}
+
+function previousStep(step) {
+  nextStep(step);
+}
+
+function updateProgress(step) {
+  const progress = (step / 5) * 100;
+  document.querySelector('.progress-fill').style.width = progress + '%';
+}
+
+// Generate campaign
+function generatePlan() {
+  const formData = {
+    issues: Array.from(document.querySelectorAll('input[name="issues-group"]:checked')).map(x => x.value),
+    issueDesc: document.getElementById('issueDesc').value,
+    advocate: document.querySelector('input[name="advocate-group"]:checked')?.value,
+    firstName: document.getElementById('firstName').value || 'Friend',
+    location: document.getElementById('location').value,
+    story: document.getElementById('story').value,
+    ask: document.getElementById('ask').value,
+    tools: Array.from(document.querySelectorAll('input[name="tools-group"]:checked')).map(x => x.value),
+    platforms: Array.from(document.querySelectorAll('input[name="platforms-group"]:checked')).map(x => x.value),
+    target: document.querySelector('input[name="target-group"]:checked')?.value
+  };
+
+  if (!formData.issues.length || !formData.advocate || !formData.ask.trim() || !formData.target) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Hide form, show output
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('campaignForm').style.display = 'none';
+  document.querySelector('.progress-bar').style.display = 'none';
+  document.querySelector('.hero').style.display = 'none';
+
+  // Generate content
+  const output = generateContent(formData);
+  document.getElementById('output').innerHTML = output;
+  document.getElementById('output').classList.add('active');
+}
+
+function generateContent(data) {
+  let html = `
+    <div style="background: var(--accent-faint); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border-left: 5px solid var(--accent);">
+      <h2 style="color: var(--primary); font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 1rem;">✨ Your Advocacy Campaign Plan</h2>
+      <p style="color: var(--text-soft); font-size: 16px;">Generated from your answers. Tap any section below to expand it.</p>
+    </div>
+  `;
+
+  // Elevator Pitch
+  if (data.tools.includes('pitch')) {
+    const pitch = `Hi, I'm ${data.firstName} from ${data.location}. ${data.story.substring(0, 50)}... And here's what I need: ${data.ask.substring(0, 60)}...`;
+    html += createOutputSection('🎤 Elevator Pitch', pitch, 'pitch-content');
+  }
+
+  // Letter
+  if (data.tools.includes('letter')) {
+    const letter = `Dear Decision Maker,
+
+My name is ${data.firstName}, and I'm reaching out from ${data.location} because this issue directly affects me and my community.
+
+${data.story}
+
+Specifically, I'm asking you to ${data.ask}.
+
+This matters because disabled people in Alabama deserve full inclusion, accessibility, and choice in our communities. I hope you'll join me in making this change happen.
+
+Thank you for considering my request.
+
+Sincerely,
+${data.firstName}`;
+    html += createOutputSection('📝 Letter / Testimony', letter, 'letter-content');
+  }
+
+  // Email
+  if (data.tools.includes('email')) {
+    const email = `Subject: Urgent: Action Needed on [Your Issue]
+
+Dear [Recipient Name],
+
+I'm ${data.firstName} from ${data.location}, and I'm writing to ask for your support.
+
+${data.story}
+
+I'm asking you to: ${data.ask}
+
+Will you help? I'd welcome the chance to discuss this further.
+
+Thank you,
+${data.firstName}`;
+    html += createOutputSection('📧 Email Template', email, 'email-content');
+  }
+
+  // Phone Script
+  if (data.tools.includes('phone')) {
+    const script = `"Hi, my name is ${data.firstName}, and I'm calling from ${data.location}. I'm reaching out because [YOUR ISSUE]. ${data.story} I'm calling to ask that you ${data.ask}. Can you commit to supporting this? [Listen to response] Thank you for your time."`;
+    html += createOutputSection('📞 Phone Call Script', script, 'phone-content');
+  }
+
+  // Op-Ed
+  if (data.tools.includes('op-ed')) {
+    const opED = `HEADLINE: [Your Issue] Demands Action in Alabama
+
+${data.story}
+
+Why it matters: Disabled Alabamians are waiting for real change. We need leaders who will ${data.ask}.
+
+The time for action is now.
+
+— ${data.firstName}, ${data.location}`;
+    html += createOutputSection('📰 Op-Ed / Opinion Piece', opED, 'oped-content');
+  }
+
+  // Social Media
+  if (data.tools.includes('social')) {
+    const posts = data.platforms.length > 0 
+      ? `Posts for: ${data.platforms.map(p => p.toUpperCase()).join(', ')}\n\n`
+      : '';
+    
+    const social = `${posts}Post 1:
+"${data.story} I'm asking [target] to ${data.ask}. #DisabilityRights #Alabama #Advocacy"
+
+Post 2:
+"Disabled people in Alabama deserve better. ${data.ask}. Join me in making this change. #DisabilityJustice"
+
+Post 3:
+"Real talk: ${data.story.substring(0, 80)}... We need action now. #DisabilityAdvocacy #AlabamaDiversity"`;
+    html += createOutputSection('📱 Social Media Posts', social, 'social-content');
+  }
+
+  html += `
+    <div style="text-align: center; margin-top: 3rem;">
+      <button class="restart-btn" onclick="location.reload()">↺ Start Over with a Different Issue</button>
+    </div>
+  `;
+
+  return html;
+}
+
+function createOutputSection(title, content, id) {
+  return `
+    <div class="output-section">
+      <div class="output-header" onclick="toggleSection('${id}')">
+        <span>${title}</span>
+        <span style="font-size: 12px;">▼</span>
+      </div>
+      <div class="output-content" id="${id}">
+        <div class="output-text">${escapeHtml(content)}</div>
+        <button class="copy-btn" onclick="copyContent('${id}')">📋 Copy to Clipboard</button>
+      </div>
+    </div>
+  `;
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('active');
+}
+
+function copyContent(id) {
+  const text = document.querySelector(`#${id} .output-text`).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy to Clipboard';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Initialize
+updateProgress(1);
+</script>
+
+</body>
+</html>
