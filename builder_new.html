@@ -468,7 +468,8 @@
         <span class="step-badge">5</span>
         Your Target Audience
       </div>
-      <label>Who are you directing your campaign toward?</label>
+      <label>Who are you directing your campaign toward? (Select all that apply)</label>
+      <div class="input-help">You can select multiple targets. We'll help you customize materials for each one.</div>
       <div class="option-group" id="target-group"></div>
       <div class="button-group">
         <button type="button" class="btn-secondary" onclick="previousStep(4)">← Back</button>
@@ -549,7 +550,7 @@ renderOptions('issues-group', ISSUES, 'checkbox');
 renderOptions('advocate-group', ADVOCATES, 'radio');
 renderOptions('tools-group', TOOLS, 'checkbox');
 renderOptions('platforms-group', PLATFORMS, 'checkbox');
-renderOptions('target-group', TARGETS, 'radio');
+renderOptions('target-group', TARGETS, 'checkbox');
 
 // Navigation
 function nextStep(step) {
@@ -580,10 +581,10 @@ function generatePlan() {
     ask: document.getElementById('ask').value,
     tools: Array.from(document.querySelectorAll('input[name="tools-group"]:checked')).map(x => x.value),
     platforms: Array.from(document.querySelectorAll('input[name="platforms-group"]:checked')).map(x => x.value),
-    target: document.querySelector('input[name="target-group"]:checked')?.value
+    targets: Array.from(document.querySelectorAll('input[name="target-group"]:checked')).map(x => x.value)
   };
 
-  if (!formData.issues.length || !formData.advocate || !formData.ask.trim() || !formData.target) {
+  if (!formData.issues.length || !formData.advocate || !formData.ask.trim() || !formData.targets.length) {
     alert('Please fill in all required fields.');
     return;
   }
@@ -687,6 +688,17 @@ Post 2:
 Post 3:
 "Real talk: ${data.story.substring(0, 80)}... We need action now. #DisabilityAdvocacy #AlabamaDiversity"`;
     html += createOutputSection('📱 Social Media Posts', social, 'social-content');
+  }
+
+  // Targets summary
+  if (data.targets.length > 0) {
+    const targetLabels = data.targets.map(t => {
+      const targetObj = TARGETS.find(x => x.id === t);
+      return targetObj ? targetObj.label : t;
+    }).join('<br>• ');
+    
+    const targetsSummary = `You are directing this campaign toward:\n\n• ${targetLabels}\n\nPersonalize each template above with the specific names and contact info for each target.`;
+    html += createOutputSection('🎯 Your Target(s)', targetsSummary, 'targets-content');
   }
 
   html += `
