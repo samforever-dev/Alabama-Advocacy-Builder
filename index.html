@@ -275,43 +275,43 @@
     <div class="q-card">
       <div class="q-step">Step 5 of 5 — Your Target Audience</div>
       <div class="q-title">Who are you directing your campaign toward?</div>
-      <div class="q-sub">Your target does not have to be a politician. Select the one that fits your situation best — your campaign content will be personalized for them.</div>
+      <div class="q-sub">Select all that apply. You can choose multiple targets and your campaign will reach all of them.</div>
 
       <div class="sec-lbl">Schools &amp; Education</div>
       <div class="cg col1">
-        <button class="choice" onclick="pkRep(this,'school')">🏫 &nbsp; A local school, principal, or school board</button>
-        <button class="choice" onclick="pkRep(this,'district')">📋 &nbsp; A school district or superintendent</button>
-        <button class="choice" onclick="pkRep(this,'university')">🎓 &nbsp; A college or university administration</button>
+        <button class="choice" onclick="tog(this,'targets','school')">🏫 &nbsp; A local school, principal, or school board</button>
+        <button class="choice" onclick="tog(this,'targets','district')">📋 &nbsp; A school district or superintendent</button>
+        <button class="choice" onclick="tog(this,'targets','university')">🎓 &nbsp; A college or university administration</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">Organizations &amp; Agencies</div>
       <div class="cg col1">
-        <button class="choice" onclick="pkRep(this,'agency')">🏢 &nbsp; A state or local government agency</button>
-        <button class="choice" onclick="pkRep(this,'nonprofit')">🤝 &nbsp; A nonprofit or service organization</button>
-        <button class="choice" onclick="pkRep(this,'employer')">💼 &nbsp; An employer or business</button>
-        <button class="choice" onclick="pkRep(this,'medicaidorg')">🏥 &nbsp; Alabama Medicaid Agency or health provider</button>
+        <button class="choice" onclick="tog(this,'targets','agency')">🏢 &nbsp; A state or local government agency</button>
+        <button class="choice" onclick="tog(this,'targets','nonprofit')">🤝 &nbsp; A nonprofit or service organization</button>
+        <button class="choice" onclick="tog(this,'targets','employer')">💼 &nbsp; An employer or business</button>
+        <button class="choice" onclick="tog(this,'targets','medicaidorg')">🏥 &nbsp; Alabama Medicaid Agency or health provider</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">U.S. Senate — Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="pkRep(this,'tuberville')">Sen. Tommy Tuberville (R) — Agriculture, Armed Services, Veterans Affairs</button>
-        <button class="choice" onclick="pkRep(this,'britt')">Sen. Katie Britt (R) — Appropriations, Banking, Judiciary, Rules</button>
+        <button class="choice" onclick="tog(this,'targets','tuberville')">Sen. Tommy Tuberville (R) — Agriculture, Armed Services, Veterans Affairs</button>
+        <button class="choice" onclick="tog(this,'targets','britt')">Sen. Katie Britt (R) — Appropriations, Banking, Judiciary, Rules</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">U.S. House — Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="pkRep(this,'moore')">Rep. Barry Moore — District 1 (R)</button>
-        <button class="choice" onclick="pkRep(this,'figures')">Rep. Shomari Figures — District 2 (D)</button>
-        <button class="choice" onclick="pkRep(this,'rogers')">Rep. Mike Rogers — District 3 (R)</button>
-        <button class="choice" onclick="pkRep(this,'aderholt')">Rep. Robert Aderholt — District 4 (R) — Chair of Appropriations ★</button>
-        <button class="choice" onclick="pkRep(this,'strong')">Rep. Dale Strong — District 5 (R)</button>
-        <button class="choice" onclick="pkRep(this,'palmer')">Rep. Gary Palmer — District 6 (R)</button>
-        <button class="choice" onclick="pkRep(this,'sewell')">Rep. Terri Sewell — District 7 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','moore')">Rep. Barry Moore — District 1 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','figures')">Rep. Shomari Figures — District 2 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','rogers')">Rep. Mike Rogers — District 3 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','aderholt')">Rep. Robert Aderholt — District 4 (R) — Chair of Appropriations ★</button>
+        <button class="choice" onclick="tog(this,'targets','strong')">Rep. Dale Strong — District 5 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','palmer')">Rep. Gary Palmer — District 6 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','sewell')">Rep. Terri Sewell — District 7 (D)</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">Alabama State Legislature</div>
       <div class="cg col1">
-        <button class="choice" onclick="pkRep(this,'state')">My Alabama State Senator or State Representative</button>
+        <button class="choice" onclick="tog(this,'targets','state')">My Alabama State Senator or State Representative</button>
       </div>
     </div>
     <div class="btn-row">
@@ -336,7 +336,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard!</div>
 
 <script>
-const S = { issues:[], role:'', fname:'', city:'', story:'', ask:'', tools:[], socials:[], rep:'' };
+const S = { issues:[], role:'', fname:'', city:'', story:'', ask:'', tools:[], socials:[], targets:[] };
 
 const REPS = {
   school:     { name:'Your School / Principal / School Board',    phone:'Contact your local school directly', url:'https://www.alsde.edu/Pages/home.aspx' },
@@ -423,7 +423,7 @@ function goTo(n) {
 function v(id) { const el=document.getElementById(id); return el?el.value.trim():''; }
 
 function restart() {
-  S.issues=[]; S.role=''; S.fname=''; S.city=''; S.story=''; S.ask=''; S.tools=[]; S.socials=[]; S.rep='';
+  S.issues=[]; S.role=''; S.fname=''; S.city=''; S.story=''; S.ask=''; S.tools=[]; S.socials=[]; S.targets=[];
   document.querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
   ['fname','city','story','ask','other-i'].forEach(id=>{ const e=document.getElementById(id); if(e)e.value=''; });
   document.getElementById('other-f').style.display='none';
@@ -446,7 +446,8 @@ One decision from you can change real lives in this district. Can I follow up wi
 }
 
 function gLetter() {
-  const rep = REPS[S.rep]||{name:'[Representative Name]'};
+  const firstTarget = S.targets.length ? S.targets[0] : 'school';
+  const rep = REPS[firstTarget]||{name:'[Representative Name]'};
   const name = S.fname||'[Your Name]'; const city = S.city||'[Your City, AL]';
   const primary = getPrimary(); const ask = S.ask||`take action on ${getLabel()}`;
   const story = S.story||'[Describe your personal experience here — 2–3 sentences]';
@@ -473,7 +474,8 @@ ${city}`;
 }
 
 function gEmail() {
-  const rep = REPS[S.rep]||{name:'[Representative Name]',phone:'',url:''};
+  const firstTarget = S.targets.length ? S.targets[0] : 'school';
+  const rep = REPS[firstTarget]||{name:'[Representative Name]',phone:'',url:''};
   const name=S.fname||'[Your Name]'; const city=S.city||'[City, AL]';
   const ask=S.ask||`support action on ${getLabel()}`;
   const storyLine = S.story ? '\n\n'+S.story : '';
@@ -498,7 +500,8 @@ ${city}
 }
 
 function gPhone() {
-  const rep = REPS[S.rep]||{name:'[Representative]',phone:'(202) 224-3121',url:''};
+  const firstTarget = S.targets.length ? S.targets[0] : 'school';
+  const rep = REPS[firstTarget]||{name:'[Representative]',phone:'(202) 224-3121',url:''};
   const name=S.fname||'a constituent'; const city=S.city||'Alabama';
   const ask=S.ask||'take action on this issue';
   return `PHONE CALL SCRIPT
@@ -531,7 +534,8 @@ AFTER YOUR CALL:
 }
 
 function gOped() {
-  const rep=REPS[S.rep]||{name:'our representatives'};
+  const firstTarget = S.targets.length ? S.targets[0] : 'school';
+  const rep=REPS[firstTarget]||{name:'our representatives'};
   const name=S.fname||'[Your Name]'; const city=S.city||'Alabama';
   const ask=S.ask||`support action on ${getLabel()}`;
   const story=S.story||'[Start here: describe one specific, real moment that shows how this issue affects you or your family. Be honest and specific.]';
@@ -562,7 +566,8 @@ Huntsville Times:                  letters@huntsvilletimes.com
 
 function gSocial() {
   const issue=getLabel(); const ask=S.ask||'contact your representative';
-  const rep=REPS[S.rep]||{name:'your representative',phone:''};
+  const firstTarget = S.targets.length ? S.targets[0] : 'rep';
+  const rep=REPS[firstTarget]||{name:'your representative',phone:''};
   const socials=S.socials.length?S.socials:['facebook','instagram','twitter'];
   let out='';
   if (socials.includes('twitter')) {
@@ -635,17 +640,18 @@ Anytime   — Repost allies, celebrate wins, thank reps for good votes
 /* BUILD */
 function buildPlan() {
   S.fname=v('fname'); S.city=v('city'); S.story=v('story'); S.ask=v('ask');
-  const rep=REPS[S.rep]||{};
+  const firstTarget = S.targets.length ? S.targets[0] : 'school';
+  const rep=REPS[firstTarget]||{};
   const name=S.fname||'Advocate';
   document.getElementById('ph').textContent=`${name}'s Campaign Plan`;
-  document.getElementById('ps').textContent=`Focused on: ${getLabel()}`;
+  document.getElementById('ps').textContent=`Focused on: ${getLabel()} | ${S.targets.length} target(s) selected`;
 
   const secs=[];
   secs.push({icon:'🎯',title:'Your campaign focus',body:buildFocus()});
   const all=S.tools.length===0;
   if(all||S.tools.includes('elevator')) secs.push({icon:'🎤',title:'Your elevator pitch',body:wrap(gElevator())});
   if(all||S.tools.includes('letter'))   secs.push({icon:'📝',title:'Your letter / testimony',body:wrap(gLetter())});
-  if(all||S.tools.includes('email'))    secs.push({icon:'📧',title:`Your email to ${rep.name||'your representative'}`,body:wrap(gEmail())});
+  if(all||S.tools.includes('email'))    secs.push({icon:'📧',title:`Your email to ${rep.name||'your target'}`,body:wrap(gEmail())});
   if(all||S.tools.includes('phone'))    secs.push({icon:'📞',title:'Your phone call script',body:wrap(gPhone())});
   if(all||S.tools.includes('oped'))     secs.push({icon:'📰',title:'Your op-ed draft',body:wrap(gOped())});
   if(all||S.tools.includes('social'))   secs.push({icon:'📱',title:'Social media posts & hashtags',body:buildSocial()});
@@ -725,6 +731,8 @@ function buildResources() {
         ['Alabama Family Central','Search local disability services by zip code','https://alabamafamilycentral.org/services'],
         ['Disability in Alabama — Accessibility Resources','Statewide accessibility tools and resources','https://disabilityinalabama.org/accessibility-resources'],
         ['Allison — Alabama Legislature Bill Search','Search all current Alabama disability-related bills','https://alison.legislature.state.al.us/bill-search'],
+        ['UCeed Alabama','Partnerships supporting community employment and economic development for people with disabilities','https://sites.uab.edu/cedd/about/ucedd/'],
+        ['Partners in Policymaking Alabama (PIPA)','Building disability policy advocacy leadership and skills','https://sites.uab.edu/cedd/programs/pipa/'],
       ]
     },
     {
