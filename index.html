@@ -21,20 +21,21 @@
     --bg:         #F4F7FC;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-main); min-height: 100vh; font-size: 16px; line-height: 1.6; }
+  /* Base font bumped from 16px to 17px */
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-main); min-height: 100vh; font-size: 17px; line-height: 1.6; }
 
   /* HERO */
   .hero { background: #EBF2FD; border-bottom: 2px solid #C5D5EE; padding: 3rem 1.5rem 2.5rem; text-align: center; }
-  .hero-tag { display: inline-block; background: #D6E4FA; color: #0F3172; border: 2px solid #93B3E0; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.2rem; }
-  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.85rem,5vw,3rem); line-height: 1.15; color: #0F3172; max-width: 680px; margin: 0 auto 1rem; }
+  .hero-tag { display: inline-block; background: #D6E4FA; color: #0F3172; border: 2px solid #93B3E0; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.2rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3.1rem); line-height: 1.15; color: #0F3172; max-width: 680px; margin: 0 auto 1rem; }
   .hero h1 em { font-style: italic; color: #1B54C0; }
-  .hero p { font-size: 1.05rem; color: #374151; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+  .hero p { font-size: 1.1rem; color: #374151; max-width: 540px; margin: 0 auto; line-height: 1.7; }
 
   /* PROGRESS */
   .prog-wrap { max-width: 640px; margin: 2rem auto 0; padding: 0 1rem; }
   .prog-bg { height: 8px; background: #C5D5EE; border-radius: 8px; overflow: hidden; }
   .prog-fill { height: 100%; background: #1B54C0; border-radius: 8px; transition: width .5s ease; }
-  .prog-label { display: flex; justify-content: space-between; font-size: 13px; color: #374151; margin-top: 6px; font-weight: 500; }
+  .prog-label { display: flex; justify-content: space-between; font-size: 14px; color: #374151; margin-top: 6px; font-weight: 500; }
 
   /* LAYOUT */
   .container { max-width: 700px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
@@ -44,9 +45,9 @@
 
   /* CARD */
   .q-card { background: var(--white); border: 2px solid var(--border); border-radius: 14px; padding: 2rem; margin-bottom: 1.25rem; }
-  .q-step { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: .5rem; }
-  .q-title { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--blue-dark); line-height: 1.25; margin-bottom: .4rem; }
-  .q-sub { font-size: 15px; color: var(--text-soft); margin-bottom: 1.4rem; line-height: 1.65; }
+  .q-step { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: .5rem; }
+  .q-title { font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--blue-dark); line-height: 1.25; margin-bottom: .4rem; }
+  .q-sub { font-size: 16px; color: var(--text-soft); margin-bottom: 1.4rem; line-height: 1.65; }
 
   /* CHOICES */
   .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -132,8 +133,12 @@
   .blink { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 600; color: var(--blue-mid); text-decoration: none; }
   .blink:hover { text-decoration: underline; }
 
+  /* DOWNLOAD BTN */
+  .download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 1.25rem; padding: 16px 28px; background: var(--blue-dark); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
+  .download-btn:hover { background: var(--blue-mid); }
+
   /* RESTART */
-  .restart { display: block; width: 100%; margin-top: 2rem; padding: 16px; background: var(--white); border: 2px solid var(--border-dk); border-radius: 12px; color: var(--blue-dark); font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
+  .restart { display: block; width: 100%; margin-top: 1rem; padding: 16px; background: var(--white); border: 2px solid var(--border-dk); border-radius: 12px; color: var(--blue-dark); font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
   .restart:hover { background: var(--blue-faint); border-color: var(--blue-mid); }
 
   /* TOAST */
@@ -143,9 +148,9 @@
   @media (max-width:540px) {
     .cg { grid-template-columns: 1fr; }
     .bgrid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 1.75rem; }
-    .q-title { font-size: 1.3rem; }
-    .plan-hdr h2 { font-size: 1.6rem; }
+    .hero h1 { font-size: 1.85rem; }
+    .q-title { font-size: 1.4rem; }
+    .plan-hdr h2 { font-size: 1.65rem; }
     .btn { font-size: 15px; padding: 13px 20px; }
   }
 </style>
@@ -153,7 +158,7 @@
 <body>
 
 <div class="hero" role="banner">
-  <div class="hero-tag">Free Tool — Disability Community</div>
+  <div class="hero-tag">Accessible Tool — Disability Community</div>
   <h1>Your <em>Advocacy Campaign</em> Starts Here</h1>
   <p>Answer a few questions about your issue. We build a complete, personalized campaign plan — ready to use today.</p>
   <div class="prog-wrap" role="progressbar" aria-label="Form progress">
@@ -171,22 +176,22 @@
       <div class="q-title">What are you advocating for?</div>
       <div class="q-sub">Select all that apply. You can choose more than one.</div>
       <div class="cg col1" id="ig">
-        <button class="choice" onclick="tog(this,'issues','rights')">🛡️ &nbsp; Disability Rights &amp; Accessibility</button>
-        <button class="choice" onclick="tog(this,'issues','sped')">📚 &nbsp; Special Education / IEP Rights</button>
-        <button class="choice" onclick="tog(this,'issues','medicaid')">🏥 &nbsp; Medicaid &amp; Healthcare Access</button>
-        <button class="choice" onclick="tog(this,'issues','transition')">🎓 &nbsp; Transition Services (Ages 14–22)</button>
-        <button class="choice" onclick="tog(this,'issues','employment')">💼 &nbsp; Employment for People with Disabilities</button>
-        <button class="choice" onclick="tog(this,'issues','voting')">🗳️ &nbsp; Voting Rights for People with Disabilities</button>
-        <button class="choice" onclick="tog(this,'issues','mental')">💙 &nbsp; Mental Health Services</button>
-        <button class="choice" onclick="tog(this,'issues','housing')">🏘️ &nbsp; Housing Accessibility</button>
-        <button class="choice" onclick="tog(this,'issues','other')">✏️ &nbsp; Other — I'll describe it</button>
+        <button class="choice" onclick="tog(this,'issues','rights')">&#128737;&#65039; &nbsp; Disability Rights &amp; Accessibility</button>
+        <button class="choice" onclick="tog(this,'issues','sped')">&#128218; &nbsp; Special Education / IEP Rights</button>
+        <button class="choice" onclick="tog(this,'issues','medicaid')">&#127973;&#65039; &nbsp; Medicaid &amp; Healthcare Access</button>
+        <button class="choice" onclick="tog(this,'issues','transition')">&#127891; &nbsp; Transition Services (Ages 14&#8211;22)</button>
+        <button class="choice" onclick="tog(this,'issues','employment')">&#128188; &nbsp; Employment for People with Disabilities</button>
+        <button class="choice" onclick="tog(this,'issues','voting')">&#128371;&#65039; &nbsp; Voting Rights for People with Disabilities</button>
+        <button class="choice" onclick="tog(this,'issues','mental')">&#128153; &nbsp; Mental Health Services</button>
+        <button class="choice" onclick="tog(this,'issues','housing')">&#127976;&#65039; &nbsp; Housing Accessibility</button>
+        <button class="choice" onclick="tog(this,'issues','other')">&#9999;&#65039; &nbsp; Other &#8212; I&#39;ll describe it</button>
       </div>
       <div class="field" id="other-f" style="display:none;margin-top:14px;">
         <label for="other-i">Describe your issue</label>
         <input type="text" id="other-i" placeholder="e.g. accessible transportation, emergency preparedness for people with disabilities..." />
       </div>
     </div>
-    <div class="btn-row"><button class="btn btn-p" onclick="goTo(2)">Next — Step 2 →</button></div>
+    <div class="btn-row"><button class="btn btn-p" onclick="goTo(2)">Next &#8212; Step 2 &#8594;</button></div>
   </div>
 
   <!-- S2 -->
@@ -204,8 +209,8 @@
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-g" onclick="goTo(1)">← Back</button>
-      <button class="btn btn-p" onclick="goTo(3)">Next — Step 3 →</button>
+      <button class="btn btn-g" onclick="goTo(1)">&#8592; Back</button>
+      <button class="btn btn-p" onclick="goTo(3)">Next &#8212; Step 3 &#8594;</button>
     </div>
   </div>
 
@@ -214,7 +219,7 @@
     <div class="q-card">
       <div class="q-step">Step 3 of 5 — Your Story</div>
       <div class="q-title">Tell us about your situation</div>
-      <div class="q-sub">Your personal story is the most powerful advocacy tool you have. Even 2–3 sentences makes a real difference.</div>
+      <div class="q-sub">Your personal story is the most powerful advocacy tool you have. Even 2&#8211;3 sentences makes a real difference.</div>
       <div class="field">
         <label for="fname">Your first name</label>
         <input type="text" id="fname" placeholder="e.g. Maria" autocomplete="given-name" />
@@ -225,7 +230,7 @@
         <div class="hint">This helps show you are from the local community when reaching out to your target audience.</div>
       </div>
       <div class="field">
-        <label for="story">Your personal story (2–3 sentences is enough)</label>
+        <label for="story">Your personal story (2&#8211;3 sentences is enough)</label>
         <textarea id="story" placeholder="e.g. My son has been waiting 4 years for Medicaid home care services. He needs support to live in the community. We cannot keep waiting."></textarea>
       </div>
       <div class="field">
@@ -235,8 +240,8 @@
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-g" onclick="goTo(2)">← Back</button>
-      <button class="btn btn-p" onclick="goTo(4)">Next — Step 4 →</button>
+      <button class="btn btn-g" onclick="goTo(2)">&#8592; Back</button>
+      <button class="btn btn-p" onclick="goTo(4)">Next &#8212; Step 4 &#8594;</button>
     </div>
   </div>
 
@@ -245,28 +250,28 @@
     <div class="q-card">
       <div class="q-step">Step 4 of 5 — Your Campaign Tools</div>
       <div class="q-title">Which tools do you want to use?</div>
-      <div class="q-sub">We will generate ready-to-use content for each one you select. Choose as many as you like — or we will generate all of them.</div>
+      <div class="q-sub">We will generate ready-to-use content for each one you select. Choose as many as you like &#8212; or we will generate all of them.</div>
       <div class="cg" id="tg">
-        <button class="choice" onclick="tog(this,'tools','elevator')"><span class="ci">🎤</span>Elevator Pitch</button>
-        <button class="choice" onclick="tog(this,'tools','letter')"><span class="ci">📝</span>Letter / Testimony</button>
-        <button class="choice" onclick="tog(this,'tools','email')"><span class="ci">📧</span>Email</button>
-        <button class="choice" onclick="tog(this,'tools','phone')"><span class="ci">📞</span>Phone Call Script</button>
-        <button class="choice" onclick="tog(this,'tools','oped')"><span class="ci">📰</span>Op-Ed / Opinion Piece</button>
-        <button class="choice" onclick="tog(this,'tools','social')"><span class="ci">📱</span>Social Media Posts</button>
+        <button class="choice" onclick="tog(this,'tools','elevator')"><span class="ci">&#127908;</span>Elevator Pitch</button>
+        <button class="choice" onclick="tog(this,'tools','letter')"><span class="ci">&#128221;</span>Letter / Testimony</button>
+        <button class="choice" onclick="tog(this,'tools','email')"><span class="ci">&#128231;</span>Email</button>
+        <button class="choice" onclick="tog(this,'tools','phone')"><span class="ci">&#128222;</span>Phone Call Script</button>
+        <button class="choice" onclick="tog(this,'tools','oped')"><span class="ci">&#128240;</span>Op-Ed / Opinion Piece</button>
+        <button class="choice" onclick="tog(this,'tools','social')"><span class="ci">&#128241;</span>Social Media Posts</button>
       </div>
     </div>
     <div class="q-card" style="margin-top:0;">
-      <div class="q-step">Social media platforms — select all you use (optional)</div>
+      <div class="q-step">Social media platforms &#8212; select all you use (optional)</div>
       <div class="cg" id="sg">
-        <button class="choice" onclick="tog(this,'socials','facebook')">👥 &nbsp; Facebook</button>
-        <button class="choice" onclick="tog(this,'socials','instagram')">📸 &nbsp; Instagram</button>
-        <button class="choice" onclick="tog(this,'socials','twitter')">𝕏 &nbsp; X / Twitter</button>
-        <button class="choice" onclick="tog(this,'socials','tiktok')">🎵 &nbsp; TikTok</button>
+        <button class="choice" onclick="tog(this,'socials','facebook')">&#128101; &nbsp; Facebook</button>
+        <button class="choice" onclick="tog(this,'socials','instagram')">&#128248; &nbsp; Instagram</button>
+        <button class="choice" onclick="tog(this,'socials','twitter')">&#120143; &nbsp; X / Twitter</button>
+        <button class="choice" onclick="tog(this,'socials','tiktok')">&#127925; &nbsp; TikTok</button>
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-g" onclick="goTo(3)">← Back</button>
-      <button class="btn btn-p" onclick="goTo(5)">Next — Step 5 →</button>
+      <button class="btn btn-g" onclick="goTo(3)">&#8592; Back</button>
+      <button class="btn btn-p" onclick="goTo(5)">Next &#8212; Step 5 &#8594;</button>
     </div>
   </div>
 
@@ -279,44 +284,46 @@
 
       <div class="sec-lbl">Schools &amp; Education</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','school')">🏫 &nbsp; A local school, principal, or school board</button>
-        <button class="choice" onclick="tog(this,'targets','district')">📋 &nbsp; A school district or superintendent</button>
-        <button class="choice" onclick="tog(this,'targets','university')">🎓 &nbsp; A college or university administration</button>
+        <button class="choice" onclick="tog(this,'targets','school')">&#127983;&#65039; &nbsp; A local school, principal, or school board</button>
+        <button class="choice" onclick="tog(this,'targets','district')">&#128203;&#65039; &nbsp; A school district or superintendent</button>
+        <button class="choice" onclick="tog(this,'targets','university')">&#127891; &nbsp; A college or university administration</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">Organizations &amp; Agencies</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','agency')">🏢 &nbsp; A state or local government agency</button>
-        <button class="choice" onclick="tog(this,'targets','nonprofit')">🤝 &nbsp; A nonprofit or service organization</button>
-        <button class="choice" onclick="tog(this,'targets','employer')">💼 &nbsp; An employer or business</button>
-        <button class="choice" onclick="tog(this,'targets','medicaidorg')">🏥 &nbsp; Alabama Medicaid Agency or health provider</button>
+        <button class="choice" onclick="tog(this,'targets','agency')">&#127970;&#65039; &nbsp; A state or local government agency</button>
+        <button class="choice" onclick="tog(this,'targets','nonprofit')">&#129309; &nbsp; A nonprofit or service organization</button>
+        <button class="choice" onclick="tog(this,'targets','employer')">&#128188; &nbsp; An employer or business</button>
+        <button class="choice" onclick="tog(this,'targets','medicaidorg')">&#127973;&#65039; &nbsp; Alabama Medicaid Agency or health provider</button>
       </div>
 
-      <div class="sec-lbl" style="margin-top:1.25rem;">U.S. Senate — Alabama</div>
+      <div class="sec-lbl" style="margin-top:1.25rem;">U.S. Senate &#8212; Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','tuberville')">Sen. Tommy Tuberville (R) — Agriculture, Armed Services, Veterans Affairs</button>
-        <button class="choice" onclick="tog(this,'targets','britt')">Sen. Katie Britt (R) — Appropriations, Banking, Judiciary, Rules</button>
+        <button class="choice" onclick="tog(this,'targets','tuberville')">Sen. Tommy Tuberville (R) &#8212; Agriculture, Armed Services, Veterans Affairs</button>
+        <button class="choice" onclick="tog(this,'targets','britt')">Sen. Katie Britt (R) &#8212; Appropriations, Banking, Judiciary, Rules</button>
       </div>
 
-      <div class="sec-lbl" style="margin-top:1.25rem;">U.S. House — Alabama</div>
+      <div class="sec-lbl" style="margin-top:1.25rem;">U.S. House &#8212; Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','moore')">Rep. Barry Moore — District 1 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','figures')">Rep. Shomari Figures — District 2 (D)</button>
-        <button class="choice" onclick="tog(this,'targets','rogers')">Rep. Mike Rogers — District 3 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','aderholt')">Rep. Robert Aderholt — District 4 (R) — Chair of Appropriations ★</button>
-        <button class="choice" onclick="tog(this,'targets','strong')">Rep. Dale Strong — District 5 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','palmer')">Rep. Gary Palmer — District 6 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','sewell')">Rep. Terri Sewell — District 7 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','moore')">Rep. Barry Moore &#8212; District 1 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','figures')">Rep. Shomari Figures &#8212; District 2 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','rogers')">Rep. Mike Rogers &#8212; District 3 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','aderholt')">Rep. Robert Aderholt &#8212; District 4 (R) &#8212; Chair of Appropriations &#9733;</button>
+        <button class="choice" onclick="tog(this,'targets','strong')">Rep. Dale Strong &#8212; District 5 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','palmer')">Rep. Gary Palmer &#8212; District 6 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','sewell')">Rep. Terri Sewell &#8212; District 7 (D)</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">Alabama State Legislature</div>
       <div class="cg col1">
         <button class="choice" onclick="tog(this,'targets','state')">My Alabama State Senator or State Representative</button>
+        <button class="choice" onclick="tog(this,'targets','hulsey')">Rep. Ginny Hulsey &#8212; AL House District 12 (R)</button>
+        <button class="choice" onclick="tog(this,'targets','clarke')">Rep. Adline Clarke &#8212; AL House District 97 (D)</button>
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-g" onclick="goTo(4)">← Back</button>
-      <button class="btn btn-p" onclick="buildPlan()">✦ Build My Campaign Plan</button>
+      <button class="btn btn-g" onclick="goTo(4)">&#8592; Back</button>
+      <button class="btn btn-p" onclick="buildPlan()">&#10022; Build My Campaign Plan</button>
     </div>
   </div>
 
@@ -328,7 +335,8 @@
       <p id="ps">Generated from your answers. Tap any section to open it.</p>
     </div>
     <div id="pb"></div>
-    <button class="restart" onclick="restart()">↺ Start over with a different issue</button>
+    <button class="download-btn" onclick="downloadPlan()">&#11015;&#65039; Download My Campaign Plan</button>
+    <button class="restart" onclick="restart()">&#8635; Start over with a different issue</button>
   </div>
 
 </div>
@@ -355,14 +363,19 @@ const REPS = {
   strong:     { name:'Rep. Dale Strong',      phone:'(202) 225-4801', url:'https://dalestrong.house.gov/contact' },
   palmer:     { name:'Rep. Gary Palmer',      phone:'(202) 225-4921', url:'https://palmer.house.gov/address_authentication?form=/contact' },
   sewell:     { name:'Rep. Terri Sewell',     phone:'(202) 225-2665', url:'https://sewell.house.gov/contact' },
-  state:      { name:'My State Legislator',   phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' }
+  state:      { name:'My State Legislator',   phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
+  hulsey:     { name:'Rep. Ginny Hulsey (AL House, District 12)', phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
+  clarke:     { name:'Rep. Adline Clarke (AL House, District 97)', phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
 };
+
+// Only elected/appointed officials shown in contacts table (non-elected org targets excluded)
+const REPS_TABLE_KEYS = ['medicaidorg','tuberville','britt','moore','figures','rogers','aderholt','strong','palmer','sewell','state','hulsey','clarke'];
 
 const ISSUES = {
   rights:    { label:'Disability Rights & Accessibility',       desc:'defends civil rights, accessibility, and community integration for people with disabilities' },
   sped:      { label:'Special Education / IEP Rights',          desc:'fully funds special education and protects IEP rights for students with disabilities' },
   medicaid:  { label:'Medicaid & Healthcare Access',             desc:'protects Medicaid and expands home and community-based services' },
-  transition:{ label:'Transition Services (Ages 14–22)',         desc:'expands transition planning and services for students with disabilities ages 14–22' },
+  transition:{ label:'Transition Services (Ages 14-22)',         desc:'expands transition planning and services for students with disabilities ages 14-22' },
   employment:{ label:'Employment for People with Disabilities',  desc:'ends subminimum wage and invests in real, integrated employment' },
   voting:    { label:'Voting Rights for People with Disabilities',desc:'ensures accessible voting options for people with disabilities' },
   mental:    { label:'Mental Health Services',                   desc:'expands mental health services and funding for people with disabilities' },
@@ -400,10 +413,6 @@ function pk(btn, key, val) {
   document.querySelectorAll('#rg .choice').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel'); S[key]=val;
 }
-function pkRep(btn, val) {
-  document.querySelectorAll('#s5 .choice').forEach(b=>b.classList.remove('sel'));
-  btn.classList.add('sel'); S.rep=val;
-}
 
 function setProg(n) {
   const pct = Math.min(Math.round(((n-1)/5)*100),100);
@@ -436,7 +445,7 @@ function gElevator() {
   const ask = S.ask||'take action on this issue';
   return `${story}${getVoice()}, I am working to make a real difference around ${getLabel()}.
 
-Right now, too many people in our community are being left behind — not because of their disability, but because of policies that fail to support them.
+Right now, too many people in our community are being left behind -- not because of their disability, but because of policies that fail to support them.
 
 I am asking you to ${ask}.
 
@@ -449,8 +458,8 @@ function gLetter() {
   const firstTarget = S.targets.length ? S.targets[0] : 'school';
   const rep = REPS[firstTarget]||{name:'[Representative Name]'};
   const name = S.fname||'[Your Name]'; const city = S.city||'[Your City, AL]';
-  const primary = getPrimary(); const ask = S.ask||`take action on ${getLabel()}`;
-  const story = S.story||'[Describe your personal experience here — 2–3 sentences]';
+  const ask = S.ask||`take action on ${getLabel()}`;
+  const story = S.story||'[Describe your personal experience here -- 2-3 sentences]';
   const today = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
   return `${today}
 
@@ -479,7 +488,7 @@ function gEmail() {
   const name=S.fname||'[Your Name]'; const city=S.city||'[City, AL]';
   const ask=S.ask||`support action on ${getLabel()}`;
   const storyLine = S.story ? '\n\n'+S.story : '';
-  return `SUBJECT: Constituent Request — Please ${ask}
+  return `SUBJECT: Constituent Request -- Please ${ask}
 
 Dear ${rep.name},
 
@@ -505,10 +514,10 @@ function gPhone() {
   const name=S.fname||'a constituent'; const city=S.city||'Alabama';
   const ask=S.ask||'take action on this issue';
   return `PHONE CALL SCRIPT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+================================
 Call: ${rep.name}
 Phone: ${rep.phone}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+================================
 
 WHEN SOMEONE ANSWERS, SAY:
 
@@ -516,21 +525,21 @@ WHEN SOMEONE ANSWERS, SAY:
 
 This issue directly affects people with disabilities in our community. I would really appreciate if you could log my call and pass my message along. Can you confirm my call will be counted today?"
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+================================
 IF THEY PUSH BACK, SAY:
 
 "I understand there may be concerns. But investing in disability services saves money long-term and keeps people out of more costly institutional care. Can I send a one-page summary to your office?"
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+================================
 ALWAYS CLOSE WITH:
 
 "Thank you so much for your time. I really appreciate you taking my call."
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+================================
 AFTER YOUR CALL:
-• Send a follow-up email within 24 hours
-• Check Congress.gov for movement on your bill
-• Call again in 2–3 weeks if no response`;
+- Send a follow-up email within 24 hours
+- Check Congress.gov for movement on your bill
+- Call again in 2-3 weeks if no response`;
 }
 
 function gOped() {
@@ -539,59 +548,59 @@ function gOped() {
   const name=S.fname||'[Your Name]'; const city=S.city||'Alabama';
   const ask=S.ask||`support action on ${getLabel()}`;
   const story=S.story||'[Start here: describe one specific, real moment that shows how this issue affects you or your family. Be honest and specific.]';
-  return `[HEADLINE — Make it personal and urgent. Example: "Alabama cannot keep making families wait"]
+  return `[HEADLINE -- Make it personal and urgent. Example: "Alabama cannot keep making families wait"]
 
 ${story}
 
 This is not an isolated experience. Across Alabama, thousands of people with disabilities and their families navigate a system that was never designed to truly support them.
 
-The issue is ${getLabel()}. This is not an abstract policy debate — it is a daily reality that determines whether people with disabilities can live in their communities, work meaningful jobs, get an equal education, and participate fully in civic life.
+The issue is ${getLabel()}. This is not an abstract policy debate -- it is a daily reality that determines whether people with disabilities can live in their communities, work meaningful jobs, get an equal education, and participate fully in civic life.
 
-We know what works. Research consistently shows that community-based services, fully funded special education, and integrated employment produce better outcomes — for people with disabilities, their families, and state budgets.
+We know what works. Research consistently shows that community-based services, fully funded special education, and integrated employment produce better outcomes -- for people with disabilities, their families, and state budgets.
 
 Alabama's leaders have the power to act right now. I am calling on ${rep.name} to ${ask}. This is achievable. This is urgent. This is the right thing to do.
 
-If you care about what kind of Alabama we want to be — for every resident — this is your moment.
+If you care about what kind of Alabama we want to be -- for every resident -- this is your moment.
 
-— ${name}, ${city}
+-- ${name}, ${city}
 [Bio: e.g. person with a disability / parent of a child with a disability / disability rights advocate]
 
-━━━ WHERE TO SUBMIT YOUR OP-ED ━━━
-AL.com / Alabama Media Group:     opinion@al.com
-Birmingham News:                   opinion@bhamnews.com
-Montgomery Advertiser:             letters@montgomeryadvertiser.com
-Huntsville Times:                  letters@huntsvilletimes.com
-[Aim for 600–800 words. Include your full name, city, and your connection to the issue.]`;
+WHERE TO SUBMIT YOUR OP-ED
+AL.com / Alabama Media Group:   opinion@al.com
+Birmingham News:                opinion@bhamnews.com
+Montgomery Advertiser:          letters@montgomeryadvertiser.com
+Huntsville Times:               letters@huntsvilletimes.com
+[Aim for 600-800 words. Include your full name, city, and your connection to the issue.]`;
 }
 
 function gSocial() {
   const issue=getLabel(); const ask=S.ask||'contact your representative';
-  const firstTarget = S.targets.length ? S.targets[0] : 'rep';
+  const firstTarget = S.targets.length ? S.targets[0] : 'tuberville';
   const rep=REPS[firstTarget]||{name:'your representative',phone:''};
   const socials=S.socials.length?S.socials:['facebook','instagram','twitter'];
   let out='';
   if (socials.includes('twitter')) {
-    out+=`── X / TWITTER (under 280 characters) ──
+    out+=`-- X / TWITTER (under 280 characters) --
 
-Post 1 — Story:
+Post 1 - Story:
 "${issue} affects real people in Alabama every day. ${S.story?S.story.split('.')[0]+'.':''} Time to act. #DisabilityRights #ALdisability"
 
-Post 2 — Action:
+Post 2 - Action:
 "60 seconds. One call. Tell ${rep.name} to ${ask}. ${rep.phone} #CripTheVote #NothingAboutUsWithoutUs"
 
-Post 3 — Awareness:
+Post 3 - Awareness:
 "1 in 4 Americans has a disability. This is everyone's issue. Share if you stand with us. #DisabilityJustice #ADAStrong"\n\n`;
   }
   if (socials.includes('facebook')) {
-    out+=`── FACEBOOK ──
+    out+=`-- FACEBOOK --
 
 "I want to share something personal with you.
 
-${S.story||'[Your story here — 2-3 sentences. What does this issue look like in your daily life?]'}
+${S.story||'[Your story here -- 2-3 sentences. What does this issue look like in your daily life?]'}
 
 I am not alone. Thousands of Alabama families live this same reality.
 
-Here is what YOU can do today — it takes 60 seconds:
+Here is what YOU can do today -- it takes 60 seconds:
 Call ${rep.name} at ${rep.phone||'their office'} and say:
 'I support action on ${issue}. Please ${ask}.'
 
@@ -600,7 +609,7 @@ Please share this post. Our voices together cannot be ignored.
 #DisabilityRights #ALdisability #NothingAboutUsWithoutUs #DisabilityJustice"\n\n`;
   }
   if (socials.includes('instagram')) {
-    out+=`── INSTAGRAM ──
+    out+=`-- INSTAGRAM --
 
 Caption:
 "This is what ${issue} looks like in real life.
@@ -616,56 +625,56 @@ Action: Call ${rep.name} and ask them to ${ask}. Full script in bio link.
 [Image tip: Open Canva, search "advocacy quote." Use large bold text on a high-contrast blue or white background.]\n\n`;
   }
   if (socials.includes('tiktok')) {
-    out+=`── TIKTOK — 60-second video script ──
+    out+=`-- TIKTOK -- 60-second video script --
 
-[0–5 sec]  Look at camera: "Did you know ${issue} is leaving thousands of Alabama families behind?"
-[5–20 sec] Your story: "${S.story?S.story.split('.')[0]+'.':'[your experience in 1–2 sentences]'}"
-[20–40 sec] The fix: "Here is who can change this — ${rep.name}. And here is what to tell them."
-[40–55 sec] The ask: "Call ${rep.phone||'their office'} and say: I support ${ask}."
-[55–60 sec] "Share this. Nothing about us without us."
+[0-5 sec]  Look at camera: "Did you know ${issue} is leaving thousands of Alabama families behind?"
+[5-20 sec] Your story: "${S.story?S.story.split('.')[0]+'.':'[your experience in 1-2 sentences]'}"
+[20-40 sec] The fix: "Here is who can change this -- ${rep.name}. And here is what to tell them."
+[40-55 sec] The ask: "Call ${rep.phone||'their office'} and say: I support ${ask}."
+[55-60 sec] "Share this. Nothing about us without us."
 
 Caption: "The truth about ${issue} in Alabama #DisabilityTikTok #DisabilityRights #ALdisability"\n\n`;
   }
-  out+=`── WEEKLY POSTING SCHEDULE ──
-Monday    — Personal story or community spotlight
-Wednesday — Policy update: what is happening in Congress this week
-Friday    — Call to action: one specific thing followers can do today
-Anytime   — Repost allies, celebrate wins, thank reps for good votes
+  out+=`-- WEEKLY POSTING SCHEDULE --
+Monday    - Personal story or community spotlight
+Wednesday - Policy update: what is happening in Congress this week
+Friday    - Call to action: one specific thing followers can do today
+Anytime   - Repost allies, celebrate wins, thank reps for good votes
 
 [Best times to post: 9 am, 12 pm, or 6 pm local time]
-[A 60-second personal video outperforms graphics 3–5x on every platform]`;
+[A 60-second personal video outperforms graphics 3-5x on every platform]`;
   return out;
 }
 
-/* BUILD */
+/* BUILD PLAN */
 function buildPlan() {
   S.fname=v('fname'); S.city=v('city'); S.story=v('story'); S.ask=v('ask');
   const firstTarget = S.targets.length ? S.targets[0] : 'school';
   const rep=REPS[firstTarget]||{};
   const name=S.fname||'Advocate';
-  document.getElementById('ph').textContent=`${name}'s Campaign Plan`;
+  document.getElementById('ph').textContent=name+"'s Campaign Plan";
   document.getElementById('ps').textContent=`Focused on: ${getLabel()} | ${S.targets.length} target(s) selected`;
 
   const secs=[];
-  secs.push({icon:'🎯',title:'Your campaign focus',body:buildFocus()});
+  secs.push({icon:'&#127919;',title:'Your campaign focus',body:buildFocus()});
   const all=S.tools.length===0;
-  if(all||S.tools.includes('elevator')) secs.push({icon:'🎤',title:'Your elevator pitch',body:wrap(gElevator())});
-  if(all||S.tools.includes('letter'))   secs.push({icon:'📝',title:'Your letter / testimony',body:wrap(gLetter())});
-  if(all||S.tools.includes('email'))    secs.push({icon:'📧',title:`Your email to ${rep.name||'your target'}`,body:wrap(gEmail())});
-  if(all||S.tools.includes('phone'))    secs.push({icon:'📞',title:'Your phone call script',body:wrap(gPhone())});
-  if(all||S.tools.includes('oped'))     secs.push({icon:'📰',title:'Your op-ed draft',body:wrap(gOped())});
-  if(all||S.tools.includes('social'))   secs.push({icon:'📱',title:'Social media posts & hashtags',body:buildSocial()});
-  secs.push({icon:'🖼️',title:'Create images & video for your campaign',body:buildImages()});
-  secs.push({icon:'🌐',title:'Resources & websites',body:buildResources()});
-  secs.push({icon:'📋',title:'Key disability bills — Alabama & federal',body:buildBills()});
-  secs.push({icon:'📞',title:'Alabama congressional contacts',body:buildReps()});
+  if(all||S.tools.includes('elevator')) secs.push({icon:'&#127908;',title:'Your elevator pitch',body:wrap(gElevator())});
+  if(all||S.tools.includes('letter'))   secs.push({icon:'&#128221;',title:'Your letter / testimony',body:wrap(gLetter())});
+  if(all||S.tools.includes('email'))    secs.push({icon:'&#128231;',title:'Your email to '+(rep.name||'your target'),body:wrap(gEmail())});
+  if(all||S.tools.includes('phone'))    secs.push({icon:'&#128222;',title:'Your phone call script',body:wrap(gPhone())});
+  if(all||S.tools.includes('oped'))     secs.push({icon:'&#128240;',title:'Your op-ed draft',body:wrap(gOped())});
+  if(all||S.tools.includes('social'))   secs.push({icon:'&#128241;',title:'Social media posts & hashtags',body:buildSocial()});
+  secs.push({icon:'&#128444;&#65039;',title:'Create images & video for your campaign',body:buildImages()});
+  secs.push({icon:'&#127760;',title:'Resources & websites',body:buildResources()});
+  secs.push({icon:'&#128203;',title:'Key disability bills &#8212; Alabama & federal',body:buildBills()});
+  secs.push({icon:'&#128222;',title:'Alabama congressional contacts',body:buildReps()});
 
   document.getElementById('pb').innerHTML=secs.map((s,i)=>`
     <div class="psec${i===0?' open':''}">
       <div class="psec-hdr" onclick="togSec(this.parentElement)" role="button" aria-expanded="${i===0?'true':'false'}">
         <div class="picon">${s.icon}</div>
         <span class="ptitle">${s.title}</span>
-        <span class="pchev" aria-hidden="true">▼</span>
+        <span class="pchev" aria-hidden="true">&#9660;</span>
       </div>
       <div class="psec-body">${s.body}</div>
     </div>`).join('');
@@ -679,7 +688,7 @@ function togSec(el) {
 
 function wrap(txt) {
   const id='g'+Math.random().toString(36).slice(2,9);
-  return `<div class="gtext" id="${id}">${esc(txt)}</div><button class="copy-btn" onclick="cpEl('${id}')">📋 Copy to clipboard</button>`;
+  return `<div class="gtext" id="${id}">${esc(txt)}</div><button class="copy-btn" onclick="cpEl('${id}')">&#128203; Copy to clipboard</button>`;
 }
 
 function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -697,7 +706,7 @@ function buildSocial() {
   const tags=['#DisabilityRights','#NothingAboutUsWithoutUs','#DisabilityJustice','#ALdisability','#CripTheVote','#HCBSnow','#FundIDEA','#EndSubminimumWage','#ProtectMedicaid','#ADAStrong','#PeopleFirstLanguage','#DisabledAndProud','#Section504','#AlabamaCares','#SSIreform','#InvisibleDisabilities','#IEPrights','#DisabilityEmployment'];
   const id='sm'+Math.random().toString(36).slice(2,9);
   return `<div class="gtext" id="${id}">${esc(gSocial())}</div>
-    <button class="copy-btn" onclick="cpEl('${id}')">📋 Copy all posts</button>
+    <button class="copy-btn" onclick="cpEl('${id}')">&#128203; Copy all posts</button>
     <div style="margin-top:18px;font-size:15px;font-weight:600;color:var(--blue-dark);margin-bottom:8px;">Tap a hashtag to copy it:</div>
     <div class="htag-wrap">${tags.map(h=>`<button class="htag" onclick="cpTag('${h}')">${h}</button>`).join('')}</div>
     <div id="hm" style="font-size:13px;color:#14532D;display:none;margin-top:6px;font-weight:600;">Hashtag copied!</div>`;
@@ -706,22 +715,22 @@ function buildSocial() {
 function buildImages() {
   return `<div class="tip">You do not need a professional designer. These free tools create clear, professional advocacy graphics on any phone or computer.</div>
     <div class="sec-lbl">Free design tools</div>
-    <div class="rrow"><div class="rl"><strong>Canva</strong><small>Drag-and-drop graphics, social posts, and flyers — free plan available</small></div><a href="https://canva.com" target="_blank">Open →</a></div>
-    <div class="rrow"><div class="rl"><strong>Adobe Express</strong><small>Free templates for advocacy campaigns and social media</small></div><a href="https://express.adobe.com" target="_blank">Open →</a></div>
-    <div class="rrow"><div class="rl"><strong>Microsoft Designer</strong><small>Free AI-powered poster and image generator</small></div><a href="https://designer.microsoft.com" target="_blank">Open →</a></div>
+    <div class="rrow"><div class="rl"><strong>Canva</strong><small>Drag-and-drop graphics, social posts, and flyers &mdash; free plan available</small></div><a href="https://canva.com" target="_blank">Open &rarr;</a></div>
+    <div class="rrow"><div class="rl"><strong>Adobe Express</strong><small>Free templates for advocacy campaigns and social media</small></div><a href="https://express.adobe.com" target="_blank">Open &rarr;</a></div>
+    <div class="rrow"><div class="rl"><strong>Microsoft Designer</strong><small>Free AI-powered poster and image generator</small></div><a href="https://designer.microsoft.com" target="_blank">Open &rarr;</a></div>
     <div class="sec-lbl" style="margin-top:1rem;">Free video tools</div>
-    <div class="rrow"><div class="rl"><strong>CapCut</strong><small>Free mobile video editor — great for Reels and TikToks on your phone</small></div><a href="https://capcut.com" target="_blank">Open →</a></div>
-    <div class="rrow"><div class="rl"><strong>Loom</strong><small>Record a 60-second advocacy video from your phone or laptop and share the link instantly</small></div><a href="https://loom.com" target="_blank">Open →</a></div>
+    <div class="rrow"><div class="rl"><strong>CapCut</strong><small>Free mobile video editor &mdash; great for Reels and TikToks on your phone</small></div><a href="https://capcut.com" target="_blank">Open &rarr;</a></div>
+    <div class="rrow"><div class="rl"><strong>Loom</strong><small>Record a 60-second advocacy video from your phone or laptop and share the link instantly</small></div><a href="https://loom.com" target="_blank">Open &rarr;</a></div>
     <div class="sec-lbl" style="margin-top:1rem;">Free disability-inclusive stock photos</div>
-    <div class="rrow"><div class="rl"><strong>Disability:IN Photo Library</strong><small>Free, authentic photos representing the disability community with dignity</small></div><a href="https://disabilityin.org/resource/disability-stock-photography/" target="_blank">Open →</a></div>
-    <div class="rrow"><div class="rl"><strong>Unsplash — search "disability"</strong><small>Free high-quality photos for any use</small></div><a href="https://unsplash.com/s/photos/disability" target="_blank">Open →</a></div>
+    <div class="rrow"><div class="rl"><strong>Disability:IN Photo Library</strong><small>Free, authentic photos representing the disability community with dignity</small></div><a href="https://disabilityin.org/resource/disability-stock-photography/" target="_blank">Open &rarr;</a></div>
+    <div class="rrow"><div class="rl"><strong>Unsplash &mdash; search &ldquo;disability&rdquo;</strong><small>Free high-quality photos for any use</small></div><a href="https://unsplash.com/s/photos/disability" target="_blank">Open &rarr;</a></div>
     <div class="tip" style="margin-top:12px;"><strong>Free AI image generation:</strong> Go to <a href="https://bing.com/images/create" target="_blank">Bing Image Creator</a> and type: <em>"A diverse group of people with disabilities advocating at a state capitol, empowering, realistic, warm lighting."</em> Download and use for free.</div>`;
 }
 
 function buildResources() {
   const groups = [
     {
-      label: '🏛️ Alabama disability organizations',
+      label: '&#127963;&#65039; Alabama disability organizations',
       items: [
         ['Alabama Disabilities Advocacy Program (ADAP)','Free legal advocacy for Alabamians with disabilities','https://adap.ua.edu'],
         ['Alabama Council on Developmental Disabilities (ACDD)','Policy advocacy and systems change in Alabama','https://www.acdd.org'],
@@ -729,39 +738,40 @@ function buildResources() {
         ['Alabama Medicaid Agency','Waiver programs and HCBS services','https://www.medicaid.alabama.gov'],
         ['Alabama Parent Education Center','Parent training and information for families of children with disabilities','https://www.alabamaparentcenter.com'],
         ['Alabama Family Central','Search local disability services by zip code','https://alabamafamilycentral.org/services'],
-        ['Disability in Alabama — Accessibility Resources','Statewide accessibility tools and resources','https://disabilityinalabama.org/accessibility-resources'],
-        ['Allison — Alabama Legislature Bill Search','Search all current Alabama disability-related bills','https://alison.legislature.state.al.us/bill-search'],
-        ['UCeed Alabama','Partnerships supporting community employment and economic development for people with disabilities','https://sites.uab.edu/cedd/about/ucedd/'],
+        ['Disability in Alabama &mdash; Accessibility Resources','Statewide accessibility tools and resources','https://disabilityinalabama.org/accessibility-resources'],
+        ['Allison &mdash; Alabama Legislature Bill Search','Search all current Alabama disability-related bills','https://alison.legislature.state.al.us/bill-search'],
+        ['UCEED Alabama','Partnerships supporting community employment and economic development for people with disabilities','https://sites.uab.edu/cedd/about/ucedd/'],
         ['Partners in Policymaking Alabama (PIPA)','Building disability policy advocacy leadership and skills','https://sites.uab.edu/cedd/programs/pipa/'],
       ]
     },
     {
-      label: '🧩 Autism Alabama resources',
+      label: '&#129513; Autism Alabama resources',
       items: [
         ['Autism Support of Alabama','Main hub for autism support and resources in Alabama','https://autism-alabama.org'],
-        ['AIACC – AL Interagency Autism Coordinating Council','Alabama Dept. of Mental Health autism coordination and membership','https://mh.alabama.gov/aiacc/'],
+        ['AIACC &ndash; AL Interagency Autism Coordinating Council','Alabama Dept. of Mental Health autism coordination and membership','https://mh.alabama.gov/aiacc/'],
         ['UA Autism Spectrum Disorders Clinic','University of Alabama clinic for autism evaluation and services','https://autism-clinic.ua.edu'],
-        ['UA ASD Clinic — Helpful Apps & Websites','Curated list of apps and tools for the autism community','https://autism-clinic.ua.edu/helpful-apps-and-websites/'],
-        ['Ady\'s Army','Autism support, tools, and resources for families','https://www.adysarmy.org'],
+        ['UA ASD Clinic &mdash; Helpful Apps &amp; Websites','Curated list of apps and tools for the autism community','https://autism-clinic.ua.edu/helpful-apps-and-websites/'],
+        ['The Autism Parent','Resources, support, and community for parents of autistic children','https://www.theautismparent.org/'],
+        ["Ady's Army",'Autism support, tools, and resources for families','https://www.adysarmy.org'],
         ['Special Olympics Alabama','Sports, inclusion, and community for people with IDD','https://specialolympicsalabama.com'],
-        ['AIACC Resources — Troy University','Transition-age autism resources for ages 14–20','https://spectrum.troy.edu/chrysalis/resources_alabama.html'],
-        ['AL Dept. of Mental Health — Autism Client Application','Download the autism services client application (PDF)','https://mh.alabama.gov/wp-content/uploads/2019/12/Autism-Client-Application-revised-11.2022_fillable.pdf'],
-        ['Organization for Autism Research — Health Resources','New health resources for the autism community','https://researchautism.org/oaracle-newsletter/new-health-resources-for-the-autism-community/'],
+        ['AIACC Resources &mdash; Troy University','Transition-age autism resources for ages 14&ndash;20','https://spectrum.troy.edu/chrysalis/resources_alabama.html'],
+        ['AL Dept. of Mental Health &mdash; Autism Client Application','Download the autism services client application (PDF)','https://mh.alabama.gov/wp-content/uploads/2019/12/Autism-Client-Application-revised-11.2022_fillable.pdf'],
+        ['Organization for Autism Research &mdash; Health Resources','New health resources for the autism community','https://researchautism.org/oaracle-newsletter/new-health-resources-for-the-autism-community/'],
         ['Easter Seals Birmingham','Disability services including autism programs in Birmingham','https://eastersealsbham.org'],
-        ['The Exceptional Foundation — Summer Camp','Inclusive summer programs for people with disabilities','https://www.exceptionalfoundation.org/summer-camp'],
+        ['The Exceptional Foundation &mdash; Summer Camp','Inclusive summer programs for people with disabilities','https://www.exceptionalfoundation.org/summer-camp'],
         ['UAB Center for Excellence in Developmental Disabilities','Research, training, and community resources at UAB','https://sites.uab.edu/cedd/'],
         ['KultureCity','Sensory-inclusive tools and venue certification','https://www.kulturecity.org'],
       ]
     },
     {
-      label: '🌐 National advocacy & IEP resources',
+      label: '&#127760; National advocacy &amp; IEP resources',
       items: [
         ['ADA National Network','Free ADA guidance, training, and resources nationwide','https://adata.org'],
         ['Understood.org','IEP rights, learning disabilities, and plain-language guides','https://www.understood.org'],
         ['PACER Center','Parent advocacy, IEP tools, and transition planning','https://www.pacer.org'],
         ['National Disability Rights Network','Protection and advocacy for people with disabilities','https://www.ndrn.org'],
-        ['AUCD — Association of University Centers on Disability','National network of university disability centers','https://www.aucd.org'],
-        ['APSE — Employment First','Supporting competitive integrated employment for people with disabilities','https://apse.org'],
+        ['AUCD &mdash; Association of University Centers on Disability','National network of university disability centers','https://www.aucd.org'],
+        ['APSE &mdash; Employment First','Supporting competitive integrated employment for people with disabilities','https://apse.org'],
       ]
     }
   ];
@@ -769,16 +779,16 @@ function buildResources() {
   return groups.map(g => `
     <details style="border:2px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;">
       <summary style="padding:13px 16px;font-size:15px;font-weight:600;color:var(--blue-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--blue-faint);">
-        ${g.label} <span style="font-size:13px;color:var(--blue-mid);font-weight:500;">Tap to expand ▼</span>
+        ${g.label} <span style="font-size:13px;color:var(--blue-mid);font-weight:500;">Tap to expand &#9660;</span>
       </summary>
       <div style="padding:0 4px 4px;">
-        ${g.items.map(([n,d,u])=>`<div class="rrow"><div class="rl"><strong>${n}</strong><small>${d}</small></div>${u?`<a href="${u}" target="_blank">Visit →</a>`:'<span style="font-size:13px;color:var(--text-muted);">—</span>'}</div>`).join('')}
+        ${g.items.map(([n,d,u])=>`<div class="rrow"><div class="rl"><strong>${n}</strong><small>${d}</small></div>${u?`<a href="${u}" target="_blank">Visit &rarr;</a>`:'<span style="font-size:13px;color:var(--text-muted);">&mdash;</span>'}</div>`).join('')}
       </div>
     </details>`).join('');
 }
 
 function buildBills() {
-  const mc = b => `<div class="bcard"><div class="btag">${b.tag}</div><div class="bname">${b.name}</div><div class="bnum">${b.num}</div><div class="bdesc">${b.desc}</div><a class="blink" href="${b.url}" target="_blank">View bill →</a></div>`;
+  const mc = b => `<div class="bcard"><div class="btag">${b.tag}</div><div class="bname">${b.name}</div><div class="bnum">${b.num}</div><div class="bdesc">${b.desc}</div><a class="blink" href="${b.url}" target="_blank">View bill &rarr;</a></div>`;
   return `<div class="sec-lbl">Federal bills</div>
     <div class="bgrid">${BILLS_FED.map(mc).join('')}</div>
     <div class="sec-lbl" style="margin-top:1.25rem;">Alabama state bills</div>
@@ -787,9 +797,50 @@ function buildBills() {
 }
 
 function buildReps() {
-  const rows=Object.entries(REPS).map(([k,r])=>`<tr><td>${r.name}</td><td>${r.phone} — <a href="${r.url}" target="_blank">Contact →</a></td></tr>`).join('');
+  const rows = REPS_TABLE_KEYS.map(k => {
+    const r = REPS[k]; if (!r) return '';
+    return `<tr><td>${r.name}</td><td>${r.phone}${r.url ? ' &mdash; <a href="'+r.url+'" target="_blank">Contact &rarr;</a>' : ''}</td></tr>`;
+  }).join('');
   return `<table class="rep-t"><tbody>${rows}</tbody></table>
-    <div class="tip" style="margin-top:12px;"><strong>Always verify contact info</strong> at <a href="https://congress.gov/members" target="_blank">congress.gov/members</a> before calling — phone numbers change between sessions.</div>`;
+    <div class="tip" style="margin-top:12px;"><strong>Always verify contact info</strong> at <a href="https://congress.gov/members" target="_blank">congress.gov/members</a> before calling &mdash; phone numbers change between sessions.</div>`;
+}
+
+/* DOWNLOAD PLAN */
+function downloadPlan() {
+  const name = S.fname || 'Advocate';
+  const issue = getLabel();
+  const date = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const divider = '='.repeat(60);
+  const sub = '-'.repeat(40);
+
+  const sections = [];
+  sections.push(`DISABILITY ADVOCACY CAMPAIGN PLAN\n${name} -- ${issue}\nGenerated: ${date}\n${divider}\n`);
+
+  const all = S.tools.length === 0;
+  if(all||S.tools.includes('elevator')) sections.push(`ELEVATOR PITCH\n${sub}\n${gElevator()}`);
+  if(all||S.tools.includes('letter'))   sections.push(`LETTER / TESTIMONY\n${sub}\n${gLetter()}`);
+  if(all||S.tools.includes('email'))    sections.push(`EMAIL\n${sub}\n${gEmail()}`);
+  if(all||S.tools.includes('phone'))    sections.push(`PHONE CALL SCRIPT\n${sub}\n${gPhone()}`);
+  if(all||S.tools.includes('oped'))     sections.push(`OP-ED DRAFT\n${sub}\n${gOped()}`);
+  if(all||S.tools.includes('social'))   sections.push(`SOCIAL MEDIA POSTS\n${sub}\n${gSocial()}`);
+
+  sections.push(`ALABAMA CONGRESSIONAL CONTACTS\n${sub}\n` +
+    REPS_TABLE_KEYS.map(k => {
+      const r = REPS[k];
+      return r ? `${r.name}\n  Phone: ${r.phone}\n  Web:   ${r.url||'N/A'}` : '';
+    }).filter(Boolean).join('\n\n')
+  );
+
+  const text = sections.join('\n\n' + divider + '\n\n');
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = (name.replace(/\s+/g,'-') || 'Advocacy') + '-Campaign-Plan.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function cpEl(id) {
