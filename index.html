@@ -299,26 +299,26 @@
 
       <div class="sec-lbl" style="margin-top:1.25rem;">U.S. Senate &#8212; Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','tuberville')">Sen. Tommy Tuberville (R) &#8212; Agriculture, Armed Services, Veterans Affairs</button>
-        <button class="choice" onclick="tog(this,'targets','britt')">Sen. Katie Britt (R) &#8212; Appropriations, Banking, Judiciary, Rules</button>
+        <button class="choice" onclick="tog(this,'targets','tuberville')">Sen. Tommy Tuberville &#8212; Agriculture, Armed Services, Veterans Affairs</button>
+        <button class="choice" onclick="tog(this,'targets','britt')">Sen. Katie Britt &#8212; Appropriations, Banking, Judiciary, Rules</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">U.S. House &#8212; Alabama</div>
       <div class="cg col1">
-        <button class="choice" onclick="tog(this,'targets','moore')">Rep. Barry Moore &#8212; District 1 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','figures')">Rep. Shomari Figures &#8212; District 2 (D)</button>
-        <button class="choice" onclick="tog(this,'targets','rogers')">Rep. Mike Rogers &#8212; District 3 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','aderholt')">Rep. Robert Aderholt &#8212; District 4 (R) &#8212; Chair of Appropriations &#9733;</button>
-        <button class="choice" onclick="tog(this,'targets','strong')">Rep. Dale Strong &#8212; District 5 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','palmer')">Rep. Gary Palmer &#8212; District 6 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','sewell')">Rep. Terri Sewell &#8212; District 7 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','moore')">Rep. Barry Moore &#8212; District 1</button>
+        <button class="choice" onclick="tog(this,'targets','figures')">Rep. Shomari Figures &#8212; District 2</button>
+        <button class="choice" onclick="tog(this,'targets','rogers')">Rep. Mike Rogers &#8212; District 3</button>
+        <button class="choice" onclick="tog(this,'targets','aderholt')">Rep. Robert Aderholt &#8212; District 4 &#8212; Chair of Appropriations &#9733;</button>
+        <button class="choice" onclick="tog(this,'targets','strong')">Rep. Dale Strong &#8212; District 5</button>
+        <button class="choice" onclick="tog(this,'targets','palmer')">Rep. Gary Palmer &#8212; District 6</button>
+        <button class="choice" onclick="tog(this,'targets','sewell')">Rep. Terri Sewell &#8212; District 7</button>
       </div>
 
       <div class="sec-lbl" style="margin-top:1.25rem;">Alabama State Legislature</div>
       <div class="cg col1">
         <button class="choice" onclick="tog(this,'targets','state')">My Alabama State Senator or State Representative</button>
-        <button class="choice" onclick="tog(this,'targets','hulsey')">Rep. Ginny Hulsey &#8212; AL House District 12 (R)</button>
-        <button class="choice" onclick="tog(this,'targets','clarke')">Rep. Adline Clarke &#8212; AL House District 97 (D)</button>
+        <button class="choice" onclick="tog(this,'targets','hulsey')">Rep. Ginny Hulsey &#8212; AL House District 12</button>
+        <button class="choice" onclick="tog(this,'targets','clarke')">Rep. Adline Clarke &#8212; AL House District 97</button>
       </div>
     </div>
     <div class="btn-row">
@@ -353,23 +353,23 @@ const REPS = {
   agency:     { name:'Your State or Local Agency',                 phone:'(334) 242-7100 (AL Gov main)', url:'https://www.alabama.gov' },
   nonprofit:  { name:'Your Nonprofit or Service Organization',     phone:'Contact the organization directly', url:'' },
   employer:   { name:'Your Employer or Business',                  phone:'Contact HR or management directly', url:'' },
-  medicaidorg:{ name:'Alabama Medicaid Agency',                    phone:'(334) 242-5000', url:'https://www.medicaid.alabama.gov/content/7.0_Contact/7.1_Contact_Information.aspx' },
+  medicaidorg:{ name:'Alabama Medicaid Agency',                    phone:'(334) 242-5000', url:'https://medicaid.alabama.gov/' },
   tuberville: { name:'Sen. Tommy Tuberville', phone:'(202) 224-4124', url:'https://www.tuberville.senate.gov/contact/' },
   britt:      { name:'Sen. Katie Britt',      phone:'(202) 224-5744', url:'https://www.britt.senate.gov/contact/' },
-  moore:      { name:'Rep. Barry Moore',      phone:'(202) 225-2901', url:'https://barrymoore.house.gov/address_authentication?form=/contact' },
+  moore:      { name:'Rep. Barry Moore',      phone:'(202) 225-2901', url:'https://barrymoore.house.gov/' },
   figures:    { name:'Rep. Shomari Figures',  phone:'(202) 225-2901', url:'https://figures.house.gov/contact' },
-  rogers:     { name:'Rep. Mike Rogers',      phone:'(202) 225-3261', url:'https://mikerogers.house.gov/address_authentication?form=/contact' },
-  aderholt:   { name:'Rep. Robert Aderholt',  phone:'(202) 225-4876', url:'https://aderholt.house.gov/address_authentication?form=/contact' },
-  strong:     { name:'Rep. Dale Strong',      phone:'(202) 225-4801', url:'https://dalestrong.house.gov/contact' },
+  rogers:     { name:'Rep. Mike Rogers',      phone:'(202) 225-3261', url:'https://mikerogers.house.gov/' },
+  aderholt:   { name:'Rep. Robert Aderholt',  phone:'(202) 225-4876', url:'https://aderholt.house.gov/contact-robert' },
+  strong:     { name:'Rep. Dale Strong',      phone:'(202) 225-4801', url:'https://strong.house.gov/contact' },
   palmer:     { name:'Rep. Gary Palmer',      phone:'(202) 225-4921', url:'https://palmer.house.gov/address_authentication?form=/contact' },
-  sewell:     { name:'Rep. Terri Sewell',     phone:'(202) 225-2665', url:'https://sewell.house.gov/contact' },
-  state:      { name:'My State Legislator',   phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
+  sewell:     { name:'Rep. Terri Sewell',     phone:'(202) 225-2665', url:'https://sewell.house.gov/' },
+  state:      { name:'Alabama House of Representatives', phone:'(334) 242-7600', url:'https://alison.legislature.state.al.us/house-leaders-members?tab=1' },
   hulsey:     { name:'Rep. Ginny Hulsey (AL House, District 12)', phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
   clarke:     { name:'Rep. Adline Clarke (AL House, District 97)', phone:'(334) 242-7600', url:'https://www.legislature.state.al.us/aliswww/ISD/ALMemberList.aspx' },
 };
 
 // Only elected/appointed officials shown in contacts table (non-elected org targets excluded)
-const REPS_TABLE_KEYS = ['medicaidorg','tuberville','britt','moore','figures','rogers','aderholt','strong','palmer','sewell','state','hulsey','clarke'];
+const REPS_TABLE_KEYS = ['medicaidorg','tuberville','britt','moore','figures','rogers','aderholt','strong','palmer','sewell','state'];
 
 const ISSUES = {
   rights:    { label:'Disability Rights & Accessibility',       desc:'defends civil rights, accessibility, and community integration for people with disabilities' },
